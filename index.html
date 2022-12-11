@@ -5,23 +5,25 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Auto SMS</title>
 	</head>
-	<body style="font-size:18px;">
+	<body style="font-size:22px;">
 		<h1>Auto SMS</h1>
 		<p>
 			<div><label>會員編號</label></div>
-			<div><input style="font-size:18px;" id='mid' type="text" name="mid" inputmode="numeric"/></div>
+			<div><input style="font-size:22px;" id='mid' type="text" name="mid" inputmode="numeric"/></div>
 		</p>
 		<p>
 			<div><label>驗證碼</label></div>
-			<div><input style="font-size:18px;" id="token" type="text" name="token" inputmode="numeric" autocomplete="one-time-code"/></div>
+			<div><input style="font-size:22px;" id="token" type="text" name="token" inputmode="numeric" autocomplete="one-time-code"/></div>
 		</p>
 		<script>
-			document.getElementById('mid').value = localStorage.getItem('mid');			
+			document.getElementById('mid').value = localStorage.getItem('mid');
+			const s_sms = document.getElementById('token');			
 			let postSMS = function(value) {
 				localStorage.setItem('mid', document.getElementById('mid').value);	
-				alert('post'+value);				
+				alert('post'+value);
+				s_sms.value='';				
 			}
-			const s_sms = document.getElementById('token');
+			
 			s_sms.oninput = function(evt) {
 	        	if (s_sms.value.length === 6) { postSMS(s_sms.value) }
 	    	};
