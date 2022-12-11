@@ -18,9 +18,10 @@
 			
 		</form>
 		<script>
-			document.getElementById('mid').value = localstorage.getItem('mid');			
+			document.getElementById('mid').value = localStorage.getItem('mid');			
 			let postSMS = function(token) {
-				localstorage.setItem('mid',token);	
+				localStorage.setItem('mid',token);	
+				alert('post');
 			}
 			const s_sms = document.getElementById('text');
 			s_sms.oninput = function(evt) {
