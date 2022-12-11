@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE>
+<html lang="zh_Hant">
 	<head>
-		<title>Simon's Github</title>
+		<meta charset="UTF-8">
+		<title>SMS</title>
 	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Simon!</h1>
-				    <p>I just try github pages...</p>
-    		</div>
-		</div>
-		<footer>
+	<body style="font-size:18px;">
+			<div>
+				<label>會員編號</label>
+				<input id='mid' type="text" name="mid" inputmode="numeric"/>
+			</div>
+		<form action="https://demo.httprelay.io/link/yyvoo8s4d" method="post">
 
-		</footer>
+			<div>
+				<label>驗證碼</label>
+				<input id="token" type="text" name="token" inputmode="numeric" autocomplete="one-time-code"/>
+			</div>
+			
+		</form>
+		<script>
+			document.getElementById('mid').value = localstorage.getItem('mid');			
+			let postSMS = function(token) {
+				localstorage.setItem('mid',token);	
+			}
+			const s_sms = document.getElementById('text');
+			s_sms.oninput = function(evt) {
+	        	if (s_sms.value.length === 6) { postSMS(document.getElementById('mid').value) }
+	    	};
+		</script>
 	</body>
 </html>
