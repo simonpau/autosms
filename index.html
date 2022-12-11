@@ -17,11 +17,19 @@
 		</p>
 		<script>
 			document.getElementById('mid').value = localStorage.getItem('mid');
-			const s_sms = document.getElementById('token');			
+			const s_sms = document.getElementById('token');	
+					
 			let postSMS = function(value) {
-				localStorage.setItem('mid', document.getElementById('mid').value);	
-				alert('post'+value);
-				s_sms.value='';				
+				var mid = document.getElementById('mid').value
+				localStorage.setItem('mid', mid);	
+				fetch('https://demo.httprelay.io/link/sp'+mid, { 
+					method: 'POST',					
+					body: value
+				})
+				.then((response) => {
+					return response.json();
+					s_sms.value='';	
+				})		
 			}
 			
 			s_sms.oninput = function(evt) {
