@@ -27,8 +27,8 @@
 					body: value
 				})
 				.then((response) => {
+					s_sms.value='';					
 					return response.text();
-					s_sms.value='';	
 				})		
 			}
 			
