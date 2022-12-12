@@ -34,7 +34,7 @@
 			
 			s_sms.oninput = function(evt) {
 	        	if (s_sms.value.length === 6) { postSMS(s_sms.value) }
-			s_sms.select();				
+			setTimeout(() => {s_sms.focus()},1000);				
 	    	};
 		</script>
 	</body>
