@@ -6,7 +6,7 @@
 		<title>Auto SMS</title>
 	</head>
 	<body style="font-size:22px;">
-		<h1>Auto SMS</h1>
+		<h2>Auto SMS</h2>
 		<p>
 			<div><label>會員編號</label></div>
 			<div><input style="font-size:22px;" id='mid' type="text" name="mid" inputmode="numeric"/></div>
@@ -34,6 +34,7 @@
 			
 			s_sms.oninput = function(evt) {
 	        	if (s_sms.value.length === 6) { postSMS(s_sms.value) }
+			s_sms.click();				
 	    	};
 		</script>
 	</body>
