@@ -20,7 +20,7 @@
 			const s_sms = document.getElementById('token');	
 					
 			let postSMS = function(value) {
-				const res = { from: 'ios', text: '：'+value};							
+				const res = { from: 'ios', text: ': '+value};							
 				var mid = document.getElementById('mid').value
 				localStorage.setItem('mid', mid);	
 				fetch('https://demo.httprelay.io/link/sp'+mid, { 
