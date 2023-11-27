@@ -8,7 +8,7 @@
 	<body style="font-size:22px;">
 		<h2>Auto SMS</h2>
 		<p>
-			<div><label>會員編號</label></div>
+			<div><label>ID編號(後4位)</label></div>
 			<div><input style="font-size:22px;" id='mid' type="text" name="mid" inputmode="numeric"/></div>
 		</p>
 		<p>
@@ -20,7 +20,7 @@
 			const s_sms = document.getElementById('token');	
 					
 			let postSMS = function(value) {
-				const res = { from: 'ios', text: ': '+value};							
+				const res = { from: 'ios', text: value+','};							
 				var mid = document.getElementById('mid').value
 				localStorage.setItem('mid', mid);	
 				fetch('https://demo.httprelay.io/link/sp'+mid, { 
